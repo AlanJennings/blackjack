@@ -32,8 +32,6 @@ public class BlackJackGame {
         System.out.println("====Dealers hand=====");
         BlackJackUtil.outputHand(dealersHand);
 
-
-        // does dealer have blackjack
         if (BlackJackUtil.doWeHaveBlackJack(dealersHand))
         {
             return "Dealer wins with Blackjack";
@@ -43,11 +41,9 @@ public class BlackJackGame {
             return "Sam wins with Blackjack";
         }
 
-        //calculate the values of cards
         samsTotal = BlackJackUtil.calculateHand(samsHand);
         dealersTotal = BlackJackUtil.calculateHand(dealersHand);
 
-        // apply sams logic to take a card if under 17
         samsTotal = BlackJackUtil.dealHand(deck, samsHand, samsLowerLimit);
         if (samsTotal > BlackJackUtil.MAX_SCORE)
         {
@@ -59,8 +55,6 @@ public class BlackJackGame {
         System.out.println("====Sams hand=====");
         BlackJackUtil.outputHand(samsHand);
 
-
-        // when sam is done, pull dealer cards if game not over
         dealersTotal = BlackJackUtil.dealHand(deck, dealersHand, samsTotal -1);
         if (dealersTotal > BlackJackUtil.MAX_SCORE)
         {
@@ -71,7 +65,6 @@ public class BlackJackGame {
 
         System.out.println("====Dealers hand=====");
         BlackJackUtil.outputHand(dealersHand);
-
 
         return String.format("Dealer Wins [%s], Sam Loses [%s]", dealersTotal, samsTotal);
     }

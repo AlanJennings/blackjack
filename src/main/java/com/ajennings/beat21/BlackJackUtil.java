@@ -2,9 +2,9 @@ package com.ajennings.beat21;
 
 import java.util.*;
 
-public class BlackJackUtil {
+public final class BlackJackUtil {
 
-    public static final int MAX_SCORE = 21;
+    protected static final int MAX_SCORE = 21;
 
     public static List<Card> buildAndShuffleDeck()
     {
@@ -41,7 +41,7 @@ public class BlackJackUtil {
         if (hand == null)
             return false;
 
-        return hand.size() == 2 && calculateHand(hand) == 21;
+        return hand.size() == 2 && calculateHand(hand) == MAX_SCORE;
     }
 
     public static void outputHand(List<Card> hand)
